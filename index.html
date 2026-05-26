@@ -11,44 +11,30 @@
             color: #fff;
             font-family: "微软雅黑", sans-serif;
         }
-        .container {
+        .box {
             height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             gap: 30px;
+            background-color: rgba(0,0,0,0.4);
         }
         h1 {
             font-size: 36px;
             color: #98d8aa;
             text-shadow: 0 0 10px #000;
         }
-        button {
-            padding: 16px 40px;
-            font-size: 20px;
-            background: #2d6a4f;
+        p {
+            font-size: 18px;
             color: #fff;
-            border: none;
-            border-radius: 12px;
-            cursor: pointer;
         }
     </style>
 </head>
 <body>
-<!-- 测试版，先保证首页能正常显示 -->
-<div class="container">
-    <h1>究极绿宝石小智版 宝可梦攻略站</h1>
-    <button onclick="alert('音乐已开始播放！点击页面任意位置即可')">点击播放音乐</button>
-</div>
-
-<audio id="bgm" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" loop>
-
-<script>
-    // 点击按钮播放音乐，绕过自动播放限制
-    document.querySelector('button').addEventListener('click', function() {
-        document.getElementById('bgm').play();
-    });
-</script>
+    <div class="box">
+        <h1>究极绿宝石小智版 宝可梦攻略站</h1>
+        <p>背景图正常显示，文字和按钮也能看到了！</p>
+    </div>
 </body>
 </html>
