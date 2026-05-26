@@ -6,12 +6,7 @@
     <title>究极绿宝石小智版 宝可梦攻略站</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: "微软雅黑", sans-serif; }
-        body {
-            background: url("bg.jpg") center/cover fixed;
-            background-color: rgba(15, 76, 58, 0.85);
-            background-blend-mode: overlay;
-            color: #fff;
-        }
+        body { background: #fff; color: #333; }
         .page { display: none; padding: 20px; min-height: 100vh; }
         .page.show { display: block; }
         .home {
@@ -22,7 +17,6 @@
             justify-content: center;
             gap: 30px;
         }
-        .home h1 { font-size: 36px; color: #98d8aa; text-shadow: 0 0 10px #000; }
         .btn {
             padding: 16px 40px;
             font-size: 20px;
@@ -49,16 +43,17 @@
             margin: 0 auto;
         }
         .card {
-            background: rgba(27, 67, 50, 0.9);
+            background: #f0f9f4;
             padding: 12px;
             border-radius: 10px;
             text-align: center;
             cursor: pointer;
+            border: 1px solid #2d6a4f;
         }
         .card img {
             width: 80px;
             height: 80px;
-            background: rgba(255,255,255,0.8);
+            background: #fff;
             border-radius: 8px;
             padding: 4px;
             object-fit: contain;
@@ -66,9 +61,10 @@
         .detail-box {
             max-width: 800px;
             margin: 0 auto;
-            background: rgba(27, 67, 50, 0.95);
+            background: #f0f9f4;
             padding: 25px;
             border-radius: 15px;
+            border: 1px solid #2d6a4f;
         }
         .detail-top {
             display: flex;
@@ -85,11 +81,11 @@
             object-fit: contain;
         }
         .info { margin: 8px 0; font-size: 15px; }
-        .info strong { color: #98d8aa; }
+        .info strong { color: #2d6a4f; }
     </style>
 </head>
 <body>
-<!-- 背景音乐：点击页面播放，绕过自动播放限制 -->
+<!-- 背景音乐：国内稳定CDN，点击页面播放 -->
 <audio id="bgm" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" loop>
 
 <!-- 首页 -->
@@ -103,7 +99,7 @@
 <!-- 列表页 -->
 <div id="page2" class="page">
     <button class="back-btn" onclick="go(1)">返回首页</button>
-    <h2 style="text-align:center; margin-bottom:20px; color:#98d8aa;">综合强度 TOP30</h2>
+    <h2 style="text-align:center; margin-bottom:20px; color:#2d6a4f;">综合强度 TOP30</h2>
     <div class="grid" id="list"></div>
 </div>
 
@@ -114,7 +110,7 @@
         <div class="detail-top">
             <img class="detail-img" id="dimg">
             <div>
-                <h2 id="dname" style="color:#98d8aa; margin-bottom:15px;"></h2>
+                <h2 id="dname" style="color:#2d6a4f; margin-bottom:15px;"></h2>
                 <div class="info"><strong>性格：</strong><span id="dnature"></span></div>
                 <div class="info"><strong>特性：</strong><span id="dability"></span></div>
                 <div class="info"><strong>技能：</strong><span id="dskill"></span></div>
@@ -172,7 +168,7 @@ function loadList() {
     data.forEach((p, i) => {
         html += `
         <div class="card" onclick="openDetail(${i})">
-            <div style="color:#98d8aa;">TOP${p.rank}</div>
+            <div style="color:#2d6a4f;">TOP${p.rank}</div>
             <img src="${p.img}" alt="${p.name}">
             <div>${p.name}</div>
         </div>`;
