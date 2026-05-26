@@ -12,298 +12,177 @@
             font-family: "微软雅黑", sans-serif;
         }
         body {
-            background: url("bg.jpg") center / cover fixed;
-            background-color: rgba(15, 76, 58, 0.9);
+            background: url("bg.jpg") center/cover fixed;
+            background-color: rgba(15, 76, 58, 0.85);
             background-blend-mode: overlay;
             color: #fff;
         }
         .page {
             display: none;
-            padding: 30px;
+            padding: 20px;
             min-height: 100vh;
         }
         .page.show {
-            display: block;
+            display: block !important;
         }
-        .home-box {
-            height: 100vh;
+        .home {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 40px;
+            height: 100vh;
+            gap: 30px;
         }
-        .home-title {
-            font-size: 42px;
+        .home h1 {
+            font-size: 36px;
             color: #98d8aa;
             text-shadow: 0 0 10px #000;
         }
-        .enter-btn {
-            padding: 18px 50px;
-            font-size: 22px;
+        .enter {
+            padding: 16px 40px;
+            font-size: 20px;
             background: #2d6a4f;
             color: #fff;
             border: none;
             border-radius: 12px;
             cursor: pointer;
         }
-        .back-btn {
-            padding: 10px 25px;
+        .back {
+            padding: 8px 20px;
             background: #2d6a4f;
             color: #fff;
             border: none;
             border-radius: 8px;
-            cursor: pointer;
             margin-bottom: 20px;
+            cursor: pointer;
         }
-        .list-wrap {
-            max-width: 1200px;
-            margin: 0 auto;
+        .grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 20px;
+            gap: 15px;
+            max-width: 1100px;
+            margin: 0 auto;
         }
-        .pokemon-item {
+        .item {
             background: rgba(27, 67, 50, 0.9);
-            padding: 15px;
-            border-radius: 12px;
+            padding: 12px;
+            border-radius: 10px;
             text-align: center;
             cursor: pointer;
         }
-        .pokemon-item img {
-            width: 90px;
-            height: 90px;
+        .item img {
+            width: 80px;
+            height: 80px;
             background: rgba(255,255,255,0.8);
             border-radius: 8px;
-            padding: 5px;
+            padding: 4px;
         }
-        .rank-text {
-            color: #98d8aa;
-            font-weight: bold;
-        }
-        .detail-box {
-            max-width: 900px;
+        .detail {
+            max-width: 800px;
             margin: 0 auto;
             background: rgba(27, 67, 50, 0.95);
-            padding: 30px;
+            padding: 25px;
             border-radius: 15px;
         }
         .detail-top {
             display: flex;
-            gap: 40px;
+            gap: 30px;
             align-items: center;
         }
         .detail-img {
-            width: 220px;
-            height: 220px;
-            background: rgba(255,255,255,0.9);
+            width: 200px;
+            height: 200px;
+            background: #fff;
             border-radius: 12px;
             padding: 15px;
         }
-        .info-line {
-            margin: 10px 0;
-            font-size: 16px;
-        }
-        .info-line strong {
-            color: #98d8aa;
-        }
-        .effect {
-            color: #c1e3c8;
-            font-size: 14px;
-            margin-left: 10px;
-            font-style: italic;
-        }
-        .comment-section {
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #40916c;
-        }
-        .comment-title {
-            font-size: 18px;
-            color: #98d8aa;
-            margin-bottom: 15px;
-            line-height: 1.5;
-        }
-        .comment-input {
-            width: 100%;
-            padding: 12px;
-            border-radius: 8px;
-            border: none;
-            outline: none;
+        .info {
+            margin: 8px 0;
             font-size: 15px;
-            margin-bottom: 10px;
-            background: rgba(255,255,255,0.9);
         }
-        .comment-btn {
-            padding: 8px 16px;
-            background: #2d6a4f;
-            color: #fff;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-        }
-        .comment-list {
-            margin-top: 20px;
-            max-height: 220px;
-            overflow-y: auto;
-        }
-        .comment-item {
-            background: rgba(255,255,255,0.1);
-            padding: 10px 14px;
-            border-radius: 8px;
-            margin-bottom: 8px;
-            font-size: 14px;
+        .info strong {
+            color: #98d8aa;
         }
     </style>
 </head>
+
 <body>
-<!-- 背景音乐：时长4分20秒，国内全网络可播放、无限循环，无需本地下载 -->
-<audio src="https://freetestdata.com/wp-content/uploads/2021/09/Free_Test_Data_400KB_MP3.mp3" autoplay loop preload="auto">
 
+<audio src="https://mir-s.cdn.okecdn.com/mp3/2025/05/25/104650685.mp3" autoplay loop></audio>
 
-<div id="homePage" class="page show">
-  <div class="home-box">
-    <h1 class="home-title">究极绿宝石小智版 宝可梦攻略站</h1>
-    <button class="enter-btn" onclick="goList()">进入攻略</button>
-  </div>
+<div id="page1" class="page show">
+    <div class="home">
+        <h1>究极绿宝石小智版 宝可梦攻略站</h1>
+        <button class="enter" onclick="go(2)">进入攻略</button>
+    </div>
 </div>
 
-<div id="listPage" class="page">
-  <button class="back-btn" onclick="goHome()">返回首页</button>
-  <h2 style="text-align:center; margin-bottom:30px; color:#98d8aa;">全网综合强度 TOP30</h2>
-  <div class="list-wrap" id="listCon"></div>
+<div id="page2" class="page">
+    <button class="back" onclick="go(1)">返回首页</button>
+    <h2 style="text-align:center; margin-bottom:20px; color:#98d8aa;">综合强度 TOP30</h2>
+    <div class="grid" id="list"></div>
 </div>
 
-<div id="detailPage" class="page">
-  <button class="back-btn" onclick="goList()">返回列表</button>
-  <div class="detail-box">
-    <div class="detail-top">
-      <img class="detail-img" id="dImg">
-      <div>
-        <h2 id="dName" style="color:#98d8aa; margin-bottom:20px;"></h2>
-        <div class="info-line"><strong>性格：</strong><span id="dNature"></span></div>
-        <div class="info-line"><strong>特性：</strong><span id="dAbility"></span> <span class="effect" id="dAbEff"></span></div>
-        <div class="info-line"><strong>技能：</strong><span id="dSkill"></span></div>
-        <div class="effect" id="dSkEff"></div>
-        <div class="info-line"><strong>道具：</strong><span id="dItem"></span> <span class="effect" id="dItEff"></span></div>
-        <div class="info-line"><strong>玩法：</strong><span id="dPlay"></span></div>
-      </div>
+<div id="page3" class="page">
+    <button class="back" onclick="go(2)">返回列表</button>
+    <div class="detail">
+        <div class="detail-top">
+            <img class="detail-img" id="dimg">
+            <div>
+                <h2 id="dname" style="color:#98d8aa; margin-bottom:15px;"></h2>
+                <div class="info"><strong>性格：</strong><span id="dnature"></span></div>
+                <div class="info"><strong>特性：</strong><span id="dability"></span></div>
+                <div class="info"><strong>技能：</strong><span id="dskill"></span></div>
+                <div class="info"><strong>道具：</strong><span id="ditem"></span></div>
+                <div class="info"><strong>玩法：</strong><span id="dplay"></span></div>
+            </div>
+        </div>
     </div>
-
-    <div class="comment-section">
-      <div class="comment-title">
-        如果愿意可以写下自己的想法，若有更好的策略可以写下供别人参考
-      </div>
-      <input type="text" class="comment-input" id="commentInput" placeholder="输入你的评论...">
-      <button class="comment-btn" onclick="submitComment()">发表评论</button>
-      <div class="comment-list" id="commentList"></div>
-    </div>
-  </div>
 </div>
 
 <script>
-let pokeData = [
-{rank:1,name:"烈空坐",img:"https://img.pokemondb.net/sprites/home/normal/rayquaza.png",nature:"爽朗（+速度-特攻）",ability:"天气锁",abEff:"无效化所有天气，不受晴天/雨天/沙暴影响",skill:"画龙点睛+神速+地震+龙舞",skEff:"画龙点睛：威力120龙本；神速：先制+1；地震：地面群攻；龙舞：攻+1速+1",item:"烈空坐超级石",itEff:"Mega进化，种族值780，全属性暴涨",play:"龙舞强化→推队，高速收割，版本最强无争议"},
-{rank:2,name:"超梦",img:"https://img.pokemondb.net/sprites/home/normal/mewtwo.png",nature:"胆小/内敛",ability:"压迫感",abEff:"对方每次出招额外消耗1点PP",skill:"精神冲击+影子球+冥想+自我再生",skEff:"精神冲击：打特防；影子球：鬼本；冥想：特攻+1特防+1；自我再生：回50%HP",item:"超梦进化石",itEff:"Mega后特攻/速度大幅提升",play:"高速特攻炮台，强化后无脑输出"},
-{rank:3,name:"盖欧卡",img:"https://img.pokemondb.net/sprites/home/normal/kyogre.png",nature:"内敛",ability:"降雨",abEff:"出场永久降雨，水系威力×1.5，打雷必中",skill:"水炮+打雷+冰冻光束+冥想",skEff:"水炮：水本高伤；打雷：雨天必中；冰光：补盲；冥想：强化",item:"潮湿岩石",itEff:"延长雨天持续时间",play:"雨天队核心，水系输出天花板"},
-{rank:4,name:"固拉多",img:"https://img.pokemondb.net/sprites/home/normal/groudon.png",nature:"固执",ability:"日照",abEff:"出场永久晴天，火系威力×1.5",skill:"断崖之剑+闪焰冲锋+剑舞+地震",skEff:"断崖之剑：地面本；闪焰冲锋：火本；剑舞：物攻+2；地震：补盲",item:"炽热岩石",itEff:"延长晴天持续时间",play:"晴天队物攻核心，地面+火打击面广"},
-{rank:5,name:"烈咬陆鲨",img:"https://img.pokemondb.net/sprites/home/normal/garchomp.png",nature:"爽朗",ability:"沙隐",abEff:"沙暴中闪避率提升",skill:"地震+龙爪+剑舞+咬碎",skEff:"地震：地面群攻；龙爪：龙本；剑舞：物攻+2；咬碎：恶本",item:"烈咬陆鲨超级石",itEff:"Mega后物攻170、速度102",play:"沙暴队高速物攻手，剑舞成型推队"},
-{rank:6,name:"班吉拉",img:"https://img.pokemondb.net/sprites/home/normal/tyranitar.png",nature:"固执",ability:"扬沙",abEff:"出场开沙暴，沙暴中特防×1.5",skill:"石刃+地震+龙爪+剑舞",skEff:"石刃：暴击率高；地震：地面群攻；龙爪：龙本；剑舞：物攻+2",item:"班吉拉超级石",itEff:"Mega后物攻164、特防150",play:"沙暴队核心，输出+防御双高"},
-{rank:7,name:"沙奈朵",img:"https://img.pokemondb.net/sprites/home/normal/gardevoir.png",nature:"内敛",ability:"同步",abEff:"自身中异常时，对方同步中招",skill:"月亮之力+精神强念+冥想+吸取之吻",skEff:"月亮之力：妖本克制龙；精神强念：超本；冥想：强化；吸取之吻：吸血",item:"沙奈朵超级石",itEff:"Mega后特攻165，妖系天花板",play:"龙系杀手，特攻强化成型无解"},
-{rank:8,name:"七夕青鸟",img:"https://img.pokemondb.net/sprites/home/normal/altaria.png",nature:"大胆/沉着",ability:"自然恢复",abEff:"下场自动清除异常",skill:"龙星群+月亮之力+羽栖+芳香治疗",skEff:"龙星群：龙本高伤；月亮之力：妖本；羽栖：回血；芳香治疗：解全队异常",item:"七夕青鸟超级石",itEff:"Mega变龙+妖，防御拉满",play:"顶级肉盾+辅助，全队续航"},
-{rank:9,name:"喷火龙Y",img:"https://img.pokemondb.net/sprites/home/normal/charizard.png",nature:"胆小",ability:"太阳之力",abEff:"晴天特攻×1.5",skill:"热风+空气斩+阳光烈焰+火焰放射",skEff:"热风：火本群攻；空气斩：飞本；阳光烈焰：晴天瞬发",item:"喷火龙Y石",itEff:"Mega后特攻159、速度126",play:"晴天队速攻核心，先手爆发"},
-{rank:10,name:"巨金怪",img:"https://img.pokemondb.net/sprites/home/normal/metagross.png",nature:"固执",ability:"净体",abEff:"不会被降低能力等级",skill:"彗星拳+子弹拳+地震+铁头",skEff:"彗星拳：钢本；子弹拳：先制；地震：补盲；铁头：畏缩",item:"巨金怪超级石",itEff:"Mega后物攻145、双防110",play:"钢系最强站场，不怕弱化"},
-{rank:11,name:"路卡利欧",img:"https://img.pokemondb.net/sprites/home/normal/lucario.png",nature:"固执/内敛",ability:"不屈之心",abEff:"害怕时速度+1",skill:"近身战+波导弹+剑舞+神速",skEff:"近身战：斗本；波导弹：必中；剑舞：强化；神速：先制",item:"路卡利欧超级石",itEff:"Mega双攻暴涨，高速爆发",play:"高速双刀手，强化秒人"},
-{rank:12,name:"耿鬼",img:"https://img.pokemondb.net/sprites/home/normal/gengar.png",nature:"胆小",ability:"诅咒身躯",abEff:"被打30%让对方诅咒掉血",skill:"影子球+污泥波+催眠术+食梦",skEff:"影子球：鬼本；污泥波：毒本；催眠：控场；食梦：吸血",item:"耿鬼超级石",itEff:"Mega高速特攻",play:"高速控场收割，催眠续航"},
-{rank:13,name:"暴飞龙",img:"https://img.pokemondb.net/sprites/home/normal/salamence.png",nature:"爽朗",ability:"威吓",abEff:"出场降对方物攻-1",skill:"龙爪+地震+龙舞+飞翔",skEff:"龙爪：龙本；地震：补盲；龙舞：攻+速；飞翔：飞本",item:"暴飞龙超级石",itEff:"Mega越打越强",play:"龙舞强化推队无解"},
-{rank:14,name:"水箭龟",img:"https://img.pokemondb.net/sprites/home/normal/blastoise.png",nature:"保守",ability:"激流",abEff:"HP低于1/3水系威力×1.5",skill:"水炮+冰冻光束+高速旋转+盐水",skEff:"水炮：水本；冰光：补盲；高速旋转：清钉子；盐水：低血高伤",item:"水箭龟超级石",itEff:"Mega防御特攻提升",play:"水系特攻核心，清钉联防"},
-{rank:15,name:"妙蛙花",img:"https://img.pokemondb.net/sprites/home/normal/venusaur.png",nature:"大胆",ability:"叶绿素",abEff:"晴天速度翻倍",skill:"花瓣舞+污泥炸弹+催眠粉+光合作用",skEff:"花瓣舞：草本；污泥炸弹：毒本；催眠：控场；光合作用：回血",item:"妙蛙花超级石",itEff:"Mega肉盾输出",play:"晴天队辅助消耗"},
-{rank:16,name:"甲贺忍蛙",img:"https://img.pokemondb.net/sprites/home/normal/greninja.png",nature:"胆小",ability:"变幻自在",abEff:"用技能变对应属性",skill:"水手里剑+冰冻光束+恶之波动",skEff:"水手里剑：多段；冰光：克龙；恶波：输出",item:"生命玉",itEff:"技能威力+10%",play:"高速灵活收割，版本热门"},
-{rank:17,name:"胡地",img:"https://img.pokemondb.net/sprites/home/normal/alakazam.png",nature:"胆小",ability:"同步",abEff:"传染异常状态",skill:"精神强念+影子球+冥想+再生",skEff:"精神强念：超本；影子球：鬼本；冥想：强化；再生：回血",item:"胡地超级石",itEff:"Mega高速特攻",play:"极限速攻秒杀"},
-{rank:18,name:"巨钳螳螂",img:"https://img.pokemondb.net/sprites/home/normal/scizor.png",nature:"固执",ability:"技术高手",abEff:"小威力技能威力提升",skill:"子弹拳+剑舞+羽栖+铁头",skEff:"子弹拳：先制；剑舞：强化；羽栖：回血；铁头：输出",item:"巨钳螳螂超级石",itEff:"Mega物攻150",play:"先制收割，钢系抗性强"},
-{rank:19,name:"卡比兽",img:"https://img.pokemondb.net/sprites/home/normal/snorlax.png",nature:"固执",ability:"厚脂肪",abEff:"火冰伤害减半",skill:"泰山压顶+咬碎+腹鼓+睡觉",skEff:"泰山压顶：一般本；咬碎：恶本；腹鼓：物攻拉满；睡觉：回血解异常",item:"剩饭",itEff:"每回合回血",play:"肉盾强化强杀"},
-{rank:20,name:"美纳斯",img:"https://img.pokemondb.net/sprites/home/normal/milotic.png",nature:"沉着",ability:"神秘鳞片",abEff:"异常时防御提升",skill:"热水+冰冻光束+自我再生+剧毒",skEff:"热水：烧伤；冰光：补盲；自我再生：回血；剧毒：掉血",item:"剩饭",itEff:"持续续航",play:"特防肉盾消耗"},
-{rank:21,name:"波士可多拉",img:"https://img.pokemondb.net/sprites/home/normal/aggron.png",nature:"固执",ability:"坚硬",abEff:"不会被一击必杀",skill:"铁尾+地震+剑舞",skEff:"铁尾：降防；地震：输出；剑舞：强化",item:"波士可多拉超级石",itEff:"Mega物防极限",play:"物防天花板，坦克强杀"},
-{rank:22,name:"天蝎王",img:"https://img.pokemondb.net/sprites/home/normal/gliscor.png",nature:"爽朗",ability:"毒疗",abEff:"中毒不掉血反而回血",skill:"地震+剑舞+守住",skEff:"地震：输出；剑舞：强化；守住：拖回合",item:"剧毒珠",itEff:"强制中毒触发毒疗",play:"无限站场，毒疗续航"},
-{rank:23,name:"蜥蜴王",img:"https://img.pokemondb.net/sprites/home/normal/sceptile.png",nature:"爽朗",ability:"叶绿素",abEff:"晴天速度翻倍",skill:"叶刃+地震+剑舞+吸取拳",skEff:"叶刃：草本；地震：补盲；剑舞：强化；吸取拳：吸血",item:"蜥蜴王超级石",itEff:"Mega速度145",play:"晴天高速物攻手"},
-{rank:24,name:"电击魔兽",img:"https://img.pokemondb.net/sprites/home/normal/electivire.png",nature:"固执",ability:"电气引擎",abEff:"免疫电系，被打提速",skill:"雷电拳+地震+剑舞",skEff:"雷电拳：麻痹；地震：输出；剑舞：强化",item:"生命玉",itEff:"攻击提升",play:"电系免疫，高速输出"},
-{rank:25,name:"仙子伊布",img:"https://img.pokemondb.net/sprites/home/normal/sylveon.png",nature:"内敛",ability:"妖精皮肤",abEff:"一般技能变妖精，威力提升",skill:"月亮之力+精神冲击+冥想",skEff:"月亮之力：克龙；精神冲击：输出；冥想：强化",item:"妖精石板",itEff:"妖精技能威力提升",play:"专治龙系，特攻强化"},
-{rank:26,name:"快龙",img:"https://img.pokemondb.net/sprites/home/normal/dragonite.png",nature:"爽朗",ability:"多重鳞片",abEff:"满血受到伤害减半",skill:"龙爪+地震+羽栖+龙舞",skEff:"龙爪：龙本；地震：补盲；羽栖：回血；龙舞：强化",item:"剩饭",itEff:"持续续航",play:"全能龙系主力"},
-{rank:27,name:"乘龙",img:"https://img.pokemondb.net/sprites/home/normal/lapras.png",nature:"内敛",ability:"储水",abEff:"免疫水系攻击还回血",skill:"冲浪+冰冻光束+打雷+唱歌",skEff:"冲浪：水本；冰光：补盲；打雷：电本；唱歌：催眠",item:"剩饭",itEff:"续航站场",play:"辅助控场团战"},
-{rank:28,name:"水晶灯火灵",img:"https://img.pokemondb.net/sprites/home/normal/chandelure.png",nature:"内敛",ability:"引火",abEff:"免疫火系，被打火伤提升",skill:"喷射火焰+影子球+冥想",skEff:"喷射火焰：火本；影子球：鬼本；冥想：强化",item:"剩饭",itEff:"持续续航",play:"免疫火系特攻炮台"},
-{rank:29,name:"沙漠蜻蜓",img:"https://img.pokemondb.net/sprites/home/normal/flygon.png",nature:"爽朗",ability:"浮游",abEff:"免疫地面技能",skill:"地震+龙爪+剑舞",skEff:"地震：输出；龙爪：龙本；剑舞：强化",item:"剩饭",itEff:"续航站场",play:"免疫地面，灵活输出"},
-{rank:30,name:"艾路雷朵",img:"https://img.pokemondb.net/sprites/home/normal/gallade.png",nature:"固执",ability:"正义之心",abEff:"被恶系攻击物攻+1",skill:"近身战+精神利刃+剑舞+暗影偷袭",skEff:"近身战：斗本；精神利刃：超本；剑舞：强化；暗影偷袭：先制",item:"艾路雷朵超级石",itEff:"Mega物攻145",play:"恶系克星，爆发输出"}
+const data = [
+{rank:1,name:"烈空坐",img:"https://img.pokemondb.net/sprites/home/normal/rayquaza.png",nature:"爽朗",ability:"天气锁",skill:"画龙点睛+神速+地震+龙舞",item:"烈空坐超级石",play:"龙舞强化推队，版本最强"},
+{rank:2,name:"超梦",img:"https://img.pokemondb.net/sprites/home/normal/mewtwo.png",nature:"胆小",ability:"压迫感",skill:"精神冲击+影子球+冥想",item:"超梦进化石",play:"高速特攻炮台"},
+{rank:3,name:"盖欧卡",img:"https://img.pokemondb.net/sprites/home/normal/kyogre.png",nature:"内敛",ability:"降雨",skill:"水炮+打雷+冰冻光束",item:"潮湿岩石",play:"雨天队核心"},
+{rank:4,name:"固拉多",img:"https://img.pokemondb.net/sprites/home/normal/groudon.png",nature:"固执",ability:"日照",skill:"断崖之剑+闪焰冲锋+剑舞",item:"炽热岩石",play:"晴天队核心"},
+{rank:5,name:"烈咬陆鲨",img:"https://img.pokemondb.net/sprites/home/normal/garchomp.png",nature:"爽朗",ability:"沙隐",skill:"地震+龙爪+剑舞",item:"超级石",play:"沙暴队强力物攻手"}
 ];
 
-let currentPokeIndex = 0;
-let comments = {};
-
-function goHome(){
-  showPage("homePage");
-}
-function goList(){
-  showPage("listPage");
-}
-function goDetail(){
-  showPage("detailPage");
-}
-function showPage(id){
-  document.querySelectorAll(".page").forEach(p=>p.classList.remove("show"));
-  document.getElementById(id).classList.add("show");
+function go(n) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('show'));
+    document.getElementById('page'+n).classList.add('show');
 }
 
-function initList(){
-  let html = "";
-  for(let i=0;i<pokeData.length;i++){
-    let p = pokeData[i];
-    html+=`
-    <div class="pokemon-item" onclick="openDetail(${i})">
-      <div class="rank-text">TOP${p.rank}</div>
-      <img src="${p.img}">
-      <div>${p.name}</div>
-    </div>`;
-  }
-  document.getElementById("listCon").innerHTML = html;
+function loadList() {
+    let html = '';
+    data.forEach((p, i) => {
+        html += `
+        <div class="item" onclick="openDetail(${i})">
+            <div style="color:#98d8aa;">TOP${p.rank}</div>
+            <img src="${p.img}">
+            <div>${p.name}</div>
+        </div>`;
+    });
+    document.getElementById('list').innerHTML = html;
 }
 
-function openDetail(i){
-  currentPokeIndex = i;
-  let d = pokeData[i];
-  document.getElementById("dImg").src = d.img;
-  document.getElementById("dName").innerText = d.name;
-  document.getElementById("dNature").innerText = d.nature;
-  document.getElementById("dAbility").innerText = d.ability;
-  document.getElementById("dAbEff").innerText = "（"+d.abEff+"）";
-  document.getElementById("dSkill").innerText = d.skill;
-  document.getElementById("dSkEff").innerText = "效果："+d.skEff;
-  document.getElementById("dItem").innerText = d.item;
-  document.getElementById("dItEff").innerText = "（"+d.itEff+"）";
-  document.getElementById("dPlay").innerText = d.play;
-  renderComment();
-  goDetail();
+function openDetail(i) {
+    const d = data[i];
+    document.getElementById('dimg').src = d.img;
+    document.getElementById('dname').innerText = d.name;
+    document.getElementById('dnature').innerText = d.nature;
+    document.getElementById('dability').innerText = d.ability;
+    document.getElementById('dskill').innerText = d.skill;
+    document.getElementById('ditem').innerText = d.item;
+    document.getElementById('dplay').innerText = d.play;
+    go(3);
 }
 
-function submitComment(){
-  let input = document.getElementById("commentInput");
-  let val = input.value.trim();
-  if(!val) return;
-  if(!comments[currentPokeIndex]) comments[currentPokeIndex] = [];
-  comments[currentPokeIndex].push(val);
-  input.value = "";
-  renderComment();
+window.onload = function() {
+    loadList();
 }
-
-function renderComment(){
-  let list = document.getElementById("commentList");
-  let arr = comments[currentPokeIndex] || [];
-  let html = "";
-  arr.forEach(c=>{
-    html+=`<div class="comment-item">${c}</div>`;
-  });
-  list.innerHTML = html;
-}
-
-window.onload = initList;
 </script>
+
 </body>
 </html>
